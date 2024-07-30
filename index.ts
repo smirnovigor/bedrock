@@ -4,6 +4,7 @@ import {
     RetrieveAndGenerateCommand,
     RetrieveAndGenerateCommandInput
 } from "@aws-sdk/client-bedrock-agent-runtime"
+
 import express from "express";
 const app = express();
 
@@ -20,8 +21,8 @@ app.listen(port, () => {
 
 const region = "us-east-1";
 const credentials = {
-    accessKeyId: process.env.accessKeyId,
-    secretAccessKey: process.env.secretAccessKey
+    accessKeyId: process.env.accessKeyId as string,
+    secretAccessKey: process.env.secretAccessKey as string
 }
 
 export const ragBedrockKnowledgeBase = async (sessionId: string | null, knowledgeBaseId: string, query: string | null) => {
